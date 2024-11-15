@@ -30,3 +30,7 @@ plt.show()
 gb = df.groupby('ParentEduc').agg({'MathScore':'mean','ReadingScore':'mean','WritingScore':'mean'})
 sns.heatmap(gb,annot=True)
 plt.show()
+# Analyze the impact of student scores based on parental Maritalstatus.
+gb1=df.groupby('ParentMaritalStatus').agg({'MathScore':'mean','ReadingScore':'mean','WritingScore':'mean'})
+print(gb1)
+sns.heatmap(gb1,annot=True)
