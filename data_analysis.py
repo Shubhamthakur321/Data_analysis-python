@@ -25,3 +25,8 @@ plt.show()
 
 # From the above chat we have analysis that female count is more then male count.
 
+# Analyze the impact of student scores based on parental education.
+
+gb = df.groupby('ParentEduc').agg({'MathScore':'mean','ReadingScore':'mean','WritingScore':'mean'})
+sns.heatmap(gb,annot=True)
+plt.show()
