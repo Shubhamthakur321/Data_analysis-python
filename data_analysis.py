@@ -41,3 +41,22 @@ sns.boxplot(data=df, y ='ReadingScore')
 plt.show()
 sns.boxplot(data=df, y ='WritingScore')
 plt.show()
+# Student Practice impact the student score
+
+gb3= df.groupby('PracticeSport').agg({'MathScore':'mean','ReadingScore':'mean','WritingScore':'mean'})
+print(gb3)
+#line chat analysis
+sns.lineplot(data=gb3,x='PracticeSport',y='MathScore')
+sns.lineplot(data=gb3,x='PracticeSport',y='ReadingScore')
+sns.lineplot(data=gb3,x='PracticeSport',y='WritingScore')
+
+#Bar chat analysis
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+sns.barplot(data=gb3,x='PracticeSport',y='MathScore',ax=axes[0])
+axes[0].set_title("MathScore")
+sns.barplot(data=gb3,x='PracticeSport',y='ReadingScore',ax=axes[1])
+axes[1].set_title("ReadingScore")
+sns.barplot(data=gb3,x='PracticeSport',y='WritingScore',ax=axes[2])
+axes[2].set_title("WritingScore")
+plt.show()
